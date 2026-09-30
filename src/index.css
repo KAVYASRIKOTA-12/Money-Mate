@@ -1,0 +1,1016 @@
+/* ============================================
+   MoneyMate — Professional + Fully Responsive
+   ============================================ */
+
+:root {
+  --mm-green: #16a34a;
+  --mm-green-dark: #15803d;
+  --mm-green-light: #dcfce7;
+  --mm-red: #dc2626;
+  --mm-red-light: #fee2e2;
+  --mm-blue: #2563eb;
+  --mm-text: #0f172a;
+  --mm-muted: #64748b;
+  --mm-border: #e2e8f0;
+  --mm-card-bg: rgba(255, 255, 255, 0.85);
+  --mm-radius: 16px;
+  --mm-radius-sm: 10px;
+  --mm-shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
+  --mm-shadow-lg: 0 12px 40px rgba(15, 23, 42, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--mm-text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+
+  background-color: #f8fafc;
+  background-image:
+    radial-gradient(at 12% 8%, rgba(22, 163, 74, 0.15) 0px, transparent 50%),
+    radial-gradient(at 88% 4%, rgba(37, 99, 235, 0.1) 0px, transparent 50%),
+    radial-gradient(at 92% 92%, rgba(22, 163, 74, 0.1) 0px, transparent 50%),
+    radial-gradient(at 8% 96%, rgba(37, 99, 235, 0.08) 0px, transparent 50%);
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+/* ============================================
+   NAVBAR
+   ============================================ */
+
+.navbar {
+  background-color: rgba(255, 255, 255, 0.72) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8) !important;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+  padding: 0.75rem 0;
+}
+
+.navbar .container {
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.navbar-brand {
+  font-size: 1.35rem;
+  font-weight: 800 !important;
+  letter-spacing: -0.03em;
+  color: var(--mm-green) !important;
+  white-space: nowrap;
+}
+
+.navbar .nav-link {
+  color: var(--mm-muted);
+  font-weight: 500;
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--mm-radius-sm);
+  transition: all 0.18s ease;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.navbar .nav-link:hover {
+  color: var(--mm-green);
+  background-color: rgba(22, 163, 74, 0.08);
+}
+
+.navbar .nav-link.active {
+  position: relative;
+  color: var(--mm-green) !important;
+  background-color: rgba(22, 163, 74, 0.1);
+  font-weight: 600;
+}
+
+.navbar .nav-link.active::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 2px;
+  background-color: var(--mm-green);
+  border-radius: 2px;
+}
+
+.navbar-nav {
+  gap: 0.35rem !important;
+}
+
+/* ============================================
+   NAVBAR — Hamburger Toggle (mobile)
+   ============================================ */
+
+.navbar-toggler {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--mm-border);
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  color: var(--mm-green);
+}
+
+.navbar-toggler:hover {
+  background-color: rgba(22, 163, 74, 0.08);
+  border-color: var(--mm-green);
+}
+
+.navbar-toggler-icon-custom {
+  font-size: 1.3rem;
+  line-height: 1;
+  display: block;
+  font-weight: 600;
+}
+
+.navbar-collapse-custom {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+/* ============================================
+   NAVBAR — User Section
+   ============================================ */
+
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: 0.5rem;
+  padding-left: 0.75rem;
+  border-left: 1px solid var(--mm-border);
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(22, 163, 74, 0.3);
+}
+
+.user-greeting {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--mm-text);
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 0 !important;
+  white-space: nowrap;
+  text-transform: capitalize;
+}
+
+.btn-logout {
+  background-color: transparent;
+  border: 1px solid var(--mm-border);
+  color: var(--mm-muted);
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+}
+
+.btn-logout:hover {
+  background-color: rgba(220, 38, 38, 0.06);
+  border-color: var(--mm-red);
+  color: var(--mm-red);
+}
+
+/* ============================================
+   CONTAINER
+   ============================================ */
+
+.container {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1140px;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--mm-text);
+  line-height: 1.25;
+  word-break: break-word;
+}
+
+h2.fw-bold {
+  font-size: clamp(1.5rem, 3vw, 1.75rem);
+  letter-spacing: -0.025em;
+  margin-bottom: 0.25rem;
+}
+
+h5.fw-bold {
+  font-size: 1.15rem;
+}
+
+p.text-muted {
+  font-size: 1rem;
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+
+.card {
+  border-radius: var(--mm-radius);
+  border: 1px solid rgba(226, 232, 240, 0.7) !important;
+  background-color: var(--mm-card-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--mm-shadow);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  overflow: hidden;
+}
+
+.card.shadow-sm:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--mm-shadow-lg) !important;
+}
+
+.card-body {
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+.card-body h3 {
+  font-size: clamp(1.35rem, 3.5vw, 1.7rem);
+  letter-spacing: -0.03em;
+  word-break: break-word;
+}
+
+/* Summary card labels — "💰 TOTAL INCOME" */
+.card-body p.text-muted.small,
+.card-body p.text-muted.small.text-uppercase {
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--mm-muted) !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ============================================
+   TABLES
+   ============================================ */
+
+.table-responsive {
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--mm-radius);
+}
+
+.table {
+  margin-bottom: 0;
+  min-width: 640px;
+}
+
+.table thead th {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--mm-muted);
+  font-weight: 700;
+  border-bottom: 1px solid var(--mm-border);
+  padding: 0.9rem 0.95rem;
+  white-space: nowrap;
+}
+
+.table tbody td {
+  vertical-align: middle;
+  border-color: var(--mm-border);
+  padding: 0.9rem 0.95rem;
+  font-size: 0.92rem;
+}
+
+.table-hover tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(22, 163, 74, 0.05);
+}
+
+/* Type badges */
+.badge.bg-success-subtle {
+  background-color: var(--mm-green-light) !important;
+  color: var(--mm-green-dark) !important;
+  font-weight: 600;
+  padding: 0.4em 0.75em;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.badge.bg-danger-subtle {
+  background-color: var(--mm-red-light) !important;
+  color: var(--mm-red) !important;
+  font-weight: 600;
+  padding: 0.4em 0.75em;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+/* Category badge in table */
+.table .badge.bg-light {
+  background-color: #f1f5f9 !important;
+  color: var(--mm-text) !important;
+  border: 1px solid var(--mm-border);
+  font-weight: 500;
+  padding: 0.35em 0.7em;
+  border-radius: 6px;
+  font-size: 0.8rem;
+}
+
+/* ============================================
+   FORMS
+   ============================================ */
+
+.form-control,
+.form-select {
+  border-radius: var(--mm-radius-sm);
+  border: 1px solid var(--mm-border);
+  padding: 0.7rem 0.95rem;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: all 0.15s ease;
+  width: 100%;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--mm-green);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.12);
+}
+
+.form-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--mm-text);
+  margin-bottom: 0.4rem;
+}
+
+/* Filter card labels — "SEARCH", "TYPE" */
+.card-body .form-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--mm-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.35rem;
+}
+
+/* Filter card heading — "🔍 Search & Filter" */
+.card-body h6.fw-bold {
+  font-size: 1rem;
+}
+
+/* Autofill fix */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+  -webkit-text-fill-color: var(--mm-text) !important;
+  caret-color: var(--mm-text);
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.btn {
+  border-radius: var(--mm-radius-sm);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.6rem 1.2rem;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-success {
+  background-color: var(--mm-green);
+  border-color: var(--mm-green);
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25);
+}
+
+.btn-success:hover {
+  background-color: var(--mm-green-dark);
+  border-color: var(--mm-green-dark);
+  box-shadow: 0 6px 16px rgba(22, 163, 74, 0.35);
+}
+
+.btn-primary {
+  background-color: var(--mm-green);
+  border-color: var(--mm-green);
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25);
+}
+
+.btn-primary:hover {
+  background-color: var(--mm-green-dark);
+  border-color: var(--mm-green-dark);
+}
+
+.btn-sm {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+}
+
+.btn-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   LISTS (Recent Transactions)
+   ============================================ */
+
+.list-group-item {
+  border-color: var(--mm-border);
+  padding: clamp(0.75rem, 2vw, 1rem) clamp(0.9rem, 2.5vw, 1.25rem);
+  background-color: transparent;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.list-group-item small {
+  font-size: 0.85rem;
+}
+
+.list-group-item .fw-bold {
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
+}
+
+.list-group-item .fw-semibold {
+  font-size: 1rem;
+  color: var(--mm-text);
+}
+
+/* ============================================
+   ALERTS
+   ============================================ */
+
+.alert {
+  border-radius: var(--mm-radius-sm);
+  font-size: 0.92rem;
+  padding: 0.75rem 1rem;
+}
+
+.alert-info {
+  background-color: rgba(22, 163, 74, 0.08);
+  border: 1px solid rgba(22, 163, 74, 0.2);
+  color: var(--mm-green-dark);
+  font-weight: 500;
+}
+
+.alert-danger {
+  border: 1px solid rgba(220, 38, 38, 0.25);
+  background-color: rgba(220, 38, 38, 0.06);
+}
+
+.alert-warning {
+  background-color: #fffbeb;
+  border: 1px solid #fcd34d;
+  color: #92400e;
+  border-radius: var(--mm-radius-sm);
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.75rem 1rem;
+}
+
+.alert-warning strong {
+  color: #78350f;
+  font-weight: 700;
+}
+
+/* ============================================
+   PROGRESS BARS
+   ============================================ */
+
+.progress {
+  background-color: rgba(15, 23, 42, 0.06);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  border-radius: 6px;
+}
+
+/* ============================================
+   AUTH PAGES
+   ============================================ */
+
+.auth-card {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   WELCOME PAGE
+   ============================================ */
+
+.welcome-page {
+  position: relative;
+  min-height: calc(100vh - 70px);
+  overflow: hidden;
+  background-color: #f8fafc;
+  background-image:
+    radial-gradient(at 15% 10%, rgba(22, 163, 74, 0.15) 0px, transparent 50%),
+    radial-gradient(at 85% 5%, rgba(37, 99, 235, 0.1) 0px, transparent 50%),
+    radial-gradient(at 90% 90%, rgba(22, 163, 74, 0.1) 0px, transparent 50%),
+    radial-gradient(at 10% 95%, rgba(37, 99, 235, 0.08) 0px, transparent 50%);
+}
+
+.welcome-content {
+  position: relative;
+  z-index: 1;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.welcome-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.welcome-emoji {
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  line-height: 1;
+}
+
+.welcome-title {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--mm-green);
+  margin: 0;
+}
+
+.welcome-tagline {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--mm-muted);
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.5;
+}
+
+.welcome-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.welcome-actions .btn {
+  min-width: 160px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+.welcome-feature {
+  padding: 1.5rem 1rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(226, 232, 240, 0.7);
+  border-radius: 16px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  height: 100%;
+}
+
+.welcome-feature:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.welcome-feature-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+/* ============================================
+   DASHBOARD — Clean Gradient Background
+   ============================================ */
+
+.dashboard-page {
+  position: relative;
+  min-height: calc(100vh - 70px);
+  padding-bottom: 2rem;
+  overflow: hidden;
+
+  background-color: #f8fafc;
+  background-image:
+    radial-gradient(at 15% 10%, rgba(22, 163, 74, 0.08) 0px, transparent 50%),
+    radial-gradient(at 85% 5%, rgba(37, 99, 235, 0.06) 0px, transparent 50%),
+    radial-gradient(at 90% 90%, rgba(22, 163, 74, 0.05) 0px, transparent 50%),
+    radial-gradient(at 10% 95%, rgba(37, 99, 235, 0.04) 0px, transparent 50%);
+}
+
+.dashboard-content {
+  position: relative;
+  z-index: 1;
+}
+
+.dashboard-page .card {
+  background-color: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.8) !important;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.app-footer {
+  margin-top: 3rem;
+  padding: 1.5rem 1rem;
+  border-top: 1px solid var(--mm-border);
+  text-align: center;
+  color: var(--mm-muted);
+  font-size: 0.85rem;
+}
+
+.app-footer strong {
+  color: var(--mm-text);
+}
+
+.app-footer p {
+  margin: 0;
+}
+
+/* ============================================
+   UTILITIES
+   ============================================ */
+
+.text-muted {
+  color: var(--mm-muted) !important;
+}
+
+code {
+  background-color: rgba(15, 23, 42, 0.06);
+  padding: 0.15em 0.4em;
+  border-radius: 6px;
+  font-size: 0.85em;
+  color: var(--mm-text);
+  word-break: break-all;
+}
+
+:focus-visible {
+  outline: 2px solid var(--mm-green);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+img,
+table,
+pre {
+  max-width: 100%;
+}
+
+/* ============================================
+   RESPONSIVE — Small phones (≤ 575px)
+   ============================================ */
+
+@media (max-width: 575.98px) {
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .navbar {
+    padding: 0.5rem 0;
+  }
+
+  .navbar-brand {
+    font-size: 1.15rem;
+  }
+
+  .navbar .nav-link {
+    font-size: 0.88rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .navbar-toggler-icon-custom {
+    font-size: 1.2rem;
+  }
+
+  .navbar-nav {
+    gap: 0.25rem !important;
+  }
+
+  h2.fw-bold {
+    font-size: 1.4rem;
+  }
+
+  h5.fw-bold {
+    font-size: 1.05rem;
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  .card-body h3 {
+    font-size: 1.25rem;
+  }
+
+  .card-body p.text-muted.small,
+  .card-body p.text-muted.small.text-uppercase {
+    font-size: 0.72rem;
+    gap: 0.35rem;
+  }
+
+  .btn {
+    padding: 0.55rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .table thead th,
+  .table tbody td {
+    padding: 0.7rem 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .table thead th {
+    font-size: 0.72rem;
+  }
+
+  .list-group-item {
+    flex-direction: column;
+    align-items: flex-start !important;
+  }
+
+  .list-group-item>span {
+    align-self: flex-end;
+  }
+
+  .list-group-item .fw-bold {
+    font-size: 1rem;
+  }
+
+  .card-body .form-label {
+    font-size: 0.72rem;
+  }
+
+  .card-body .form-control,
+  .card-body .form-select {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .welcome-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .welcome-actions .btn {
+    width: 100%;
+  }
+
+  .welcome-feature {
+    padding: 1.25rem 1rem;
+  }
+
+  .user-avatar {
+    width: 34px;
+    height: 34px;
+    font-size: 0.85rem;
+  }
+
+  .user-greeting {
+    font-size: 0.88rem;
+  }
+
+  .app-footer {
+    font-size: 0.8rem;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — Large phones (576px – 767px)
+   ============================================ */
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .navbar .nav-link {
+    font-size: 0.9rem;
+    padding: 0.45rem 0.65rem;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — Tablets (768px – 991px)
+   ============================================ */
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .container {
+    max-width: 720px;
+  }
+
+  .table {
+    min-width: 100%;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — Small laptops (992px – 1199px)
+   ============================================ */
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .container {
+    max-width: 960px;
+  }
+
+  .table {
+    min-width: 100%;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — Desktops (≥ 1200px)
+   ============================================ */
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+
+  .table {
+    min-width: 100%;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — Large monitors (≥ 1600px)
+   ============================================ */
+
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1320px;
+  }
+
+  body {
+    font-size: 1.02rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
+/* ============================================
+   MOBILE — Navbar collapse (< 992px)
+   ============================================ */
+
+@media (max-width: 991.98px) {
+  .navbar-toggler {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar-collapse-custom {
+    display: none;
+    flex-direction: column;
+    flex-basis: 100%;
+    width: 100%;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--mm-border);
+  }
+
+  .navbar-collapse-custom.open {
+    display: flex;
+    animation: slideDown 0.2s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .navbar-collapse-custom .navbar-nav {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.2rem !important;
+  }
+
+  .navbar-collapse-custom .nav-link {
+    padding: 0.6rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+  }
+
+  .navbar-collapse-custom .nav-link:hover,
+  .navbar-collapse-custom .nav-link.active {
+    background-color: rgba(22, 163, 74, 0.1);
+  }
+
+  .navbar .nav-link.active::after {
+    display: none;
+  }
+
+  .user-section {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+    margin-top: 0.5rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--mm-border);
+    width: 100%;
+  }
+
+  .user-greeting {
+    justify-content: flex-start;
+    padding: 0.5rem 0.75rem !important;
+  }
+
+  .user-section .btn-logout {
+    width: 100%;
+    text-align: center;
+    padding: 0.6rem;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
