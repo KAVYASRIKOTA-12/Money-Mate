@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-
 import { AuthProvider, useAuth } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
-
+import Profile from './pages/Profile';
 import Navbar from './components/Navbar';
 
 import Welcome from './pages/Welcome';
@@ -145,6 +144,15 @@ function AppContent() {
 
         {/* Fallback — unknown routes → welcome */}
         <Route path="/" element={<Navigate to="/welcome" replace />} />
+      
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </>
   );

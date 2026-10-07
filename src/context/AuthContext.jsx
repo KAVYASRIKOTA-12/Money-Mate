@@ -56,7 +56,10 @@ export function AuthProvider({ children }) {
       (u) => u.email.toLowerCase() === normalizedEmail
     );
     if (exists) {
-      return { success: false, error: 'An account with this email already exists.' };
+      return {
+        success: false,
+        error: 'An account with this email already exists.',
+      };
     }
 
     const newUser = {
@@ -100,15 +103,47 @@ export function AuthProvider({ children }) {
     setCurrentUser(null);
   }
 
+  // --- Update Profile ---
+  function updateProfile({ name }) {
+    if (!currentUser) {
+      return { success: false, error: 'Not logged in.' };
+    }
+
+    const trimmedName = name.trim();
+    if (!trimmedName) {
+      return { success: false, error: 'Name cannot be empty.' };
+    }
+
+    // Update in users array
+    setUsers((prev) =>
+      prev.map((u) =>
+        u.email === currentUser.email
+          ? { ...u, name: trimmedName }
+          : u
+      )
+    );
+
+    // Update current user
+    setCurrentUser((prev) => ({
+      ...prev,
+      name: trimmedName,
+    }));
+
+    return { success: true };
+  }
+
   const value = {
     currentUser,
     isAuthenticated: !!currentUser,
     register,
     login,
     logout,
+    updateProfile,
   };
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
+  );
 }
 
 export function useAuth() {
