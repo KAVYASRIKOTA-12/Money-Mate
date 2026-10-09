@@ -12,6 +12,14 @@ A full-featured expense tracker built with React, Vite, and Bootstrap.
 - Data export (JSON/CSV)
 - Responsive design (mobile → 4K)
 
+### Core Features
+- **Dashboard** — Real-time summary (income, expenses, balance)
+- **Transactions** — 5-filter search (title, type, category, date range)
+- **Add Transaction** — Quick entry with categories
+- **Reports** — Monthly breakdowns + category analysis
+- **Settings** — Export data (JSON/CSV), clear all
+- **Profile** — Edit name, change password
+
 ## 🛠️ Tech Stack
 - **Frontend:** React 19, Vite, React Router v7
 - **UI:** Bootstrap 5, Bootstrap Icons
@@ -19,21 +27,45 @@ A full-featured expense tracker built with React, Vite, and Bootstrap.
 - **Storage:** LocalStorage (per-user)
 - **Deployment:** Vercel
 
+### Installation
 
-## 🚀 Setup
-```
-/bash
+```bash
+# Clone the repository
 git clone https://github.com/YOUR_USERNAME/moneymate.git
 cd moneymate
-npm install
-npm run dev
-```
 
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+App will run at http://localhost:5173
+```
 ## 📁 Project Structure
 ```
-src/
-├── components/
-├── context/
-├── pages/
-└── assets/
+MoneyMate/
+├── public/
+├── src/
+│   ├── assets/          
+│   ├── components/     
+│   │   ├── Navbar.jsx
+│   │   └── ProtectedRoute.jsx
+│   ├── context/         
+│   │   └── AuthContext.jsx
+│   ├── pages/           
+│   │   ├── Welcome.jsx
+│   │   ├── Login.jsx
+│   │   ├── Register.jsx
+│   │   ├── Dashboard.jsx
+│   │   ├── Transactions.jsx
+│   │   ├── AddExpense.jsx
+│   │   ├── Reports.jsx
+│   │   ├── Settings.jsx
+│   │   └── Profile.jsx
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+├── index.html
+├── package.json
+└── vite.config.js
 ```
