@@ -21,14 +21,17 @@ A full-featured expense tracker built with React, Vite, and Bootstrap.
 
 
 ## 🚀 Setup
+```
 \`\`\`bash
 git clone https://github.com/YOUR_USERNAME/moneymate.git
 cd moneymate
 npm install
 npm run dev
 \`\`\`
+```
 
 ## 📁 Project Structure
+```
 \`\`\`
 src/
 ├── components/
@@ -36,4 +39,4 @@ src/
 ├── pages/
 └── assets/
 \`\`\`
-
+```
