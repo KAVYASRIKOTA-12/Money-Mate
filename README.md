@@ -21,19 +21,47 @@ A full-featured expense tracker built with React, Vite, and Bootstrap.
 
 
 ## 🚀 Setup
-\`\`\`bash
+```
+/bash
 git clone https://github.com/YOUR_USERNAME/moneymate.git
 cd moneymate
 npm install
 npm run dev
-\`\`\`
+```
 
 ## 📁 Project Structure
-\`\`\`
-src/
-├── components/
-├── context/
-├── pages/
-└── assets/
-\`\`\`
-
+```
+MoneyMate/
+├── dist/                    
+├── node_modules/
+├── public/
+├── src/
+│   ├── assets/              
+│   ├── components/          
+│   │   ├── Navbar.jsx
+│   │   └── ProtectedRoute.jsx
+│   ├── context/             
+│   │   └── AuthContext.jsx
+│   ├── pages/               
+│   │   ├── AddExpense.jsx
+│   │   ├── Dashboard.jsx
+│   │   ├── EditProfile.jsx
+│   │   ├── Login.jsx
+│   │   ├── Profile.jsx
+│   │   ├── Register.jsx
+│   │   ├── Reports.jsx
+│   │   ├── Settings.jsx
+│   │   ├── Transactions.jsx
+│   │   └── Welcome.jsx
+│   |             
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── README.md                
+└── vite.config.js
+```
