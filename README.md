@@ -44,7 +44,11 @@ App will run at http://localhost:5173
 ## 📁 Project Structure
 ```
 MoneyMate/
+<<<<<<< HEAD
 ├── public/
+=======
+|
+>>>>>>> 38e080e668144d0d18d5368bb934ee5bcfaaccff
 ├── src/
 │   ├── assets/          
 │   ├── components/     
