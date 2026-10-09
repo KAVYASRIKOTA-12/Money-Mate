@@ -1,16 +1,39 @@
-# React + Vite
+# MoneyMate — Personal Finance Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-featured expense tracker built with React, Vite, and Bootstrap.
 
-Currently, two official plugins are available:
+🔗 **Live Demo:** https://money-mate-smoky.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
+- User authentication (register/login/logout)
+- Real-time dashboard with income, expenses, balance
+- Transaction management with 5-filter search
+- Monthly reports with category breakdowns
+- Data export (JSON/CSV)
+- Responsive design (mobile → 4K)
 
-## React Compiler
+## 🛠️ Tech Stack
+- **Frontend:** React 19, Vite, React Router v7
+- **UI:** Bootstrap 5, Bootstrap Icons
+- **State:** Context API
+- **Storage:** LocalStorage (per-user)
+- **Deployment:** Vercel
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+## 🚀 Setup
+\`\`\`bash
+git clone https://github.com/YOUR_USERNAME/moneymate.git
+cd moneymate
+npm install
+npm run dev
+\`\`\`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📁 Project Structure
+\`\`\`
+src/
+├── components/
+├── context/
+├── pages/
+└── assets/
+\`\`\`
+
